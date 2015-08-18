@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
 
-class CurrentLocationViewController: UIViewController {
+class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
 
+    let locationManager = CLLocationManager()
+    
+    
+    
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
@@ -28,6 +33,28 @@ class CurrentLocationViewController: UIViewController {
     }
 
     @IBAction func getLocation(sender: AnyObject) {
+        let authStatus = CLLocationManager.authorizationStatus()
+        
+        if authStatus == .NotDetermined {
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.startUpdatingLocation()
+
+        
+    }
+    
+    // MARK: -CLLocationManagerDelegate
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Hey this failed with a big ole error \(error)")
+    }
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        let newLocation = locations.last as! CLLocation
+        println("didUpdateLocations \(newLocation)")
+        
     }
 
 }
