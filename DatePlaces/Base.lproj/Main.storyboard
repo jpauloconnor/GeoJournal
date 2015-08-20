@@ -116,6 +116,9 @@
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="VxN-cc-uWA" id="2YW-6Y-67S"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -141,6 +144,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="n55-fk-UO8" kind="push" identifier="PickCategory" id="XM7-FH-BZn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -289,6 +295,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rF-8r-gwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1060" y="-318"/>
+        </scene>
+        <!--Category Picker View Controller-->
+        <scene sceneID="oyV-2a-V8n">
+            <objects>
+                <tableViewController id="n55-fk-UO8" customClass="CategoryPickerViewController" customModule="DatePlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Tk-fu-ELq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="mxQ-Mw-LMs" style="IBUITableViewCellStyleDefault" id="1P3-Eg-i6w">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1P3-Eg-i6w" id="PcJ-DE-d6O">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mxQ-Mw-LMs">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6rz-YX-BRF" kind="unwind" identifier="PickedCategory" unwindAction="categoryPickerDidPickCategory:" id="zU8-xZ-1I0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n55-fk-UO8" id="DJd-Oc-vBi"/>
+                            <outlet property="delegate" destination="n55-fk-UO8" id="VWi-m5-zJc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZpX-No-qnt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ymn-79-tqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6rz-YX-BRF" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1509" y="-318"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">

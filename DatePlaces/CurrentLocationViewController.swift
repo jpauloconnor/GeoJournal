@@ -36,6 +36,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         updateLabels()
         configureGetButton()
         // Do any additional setup after loading the view, typically from a nib.
@@ -233,7 +234,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     func stringFromPlacemark(placemark: CLPlacemark) -> String {
         return
-        "\(placemark.subThoroughfare) \(placemark.thoroughfare)\n" + "\(placemark.locality) \(placemark.administrativeArea) " + "\(placemark.postalCode)"
+            "\(placemark.subThoroughfare) \(placemark.thoroughfare)\n" +
+                "\(placemark.locality) \(placemark.administrativeArea) " +
+                "\(placemark.postalCode)"
     }
     
     func didTimeOut() {
@@ -245,6 +248,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         
         updateLabels()
         configureGetButton()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "TagLocation" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! LocationDetailsViewController
+            controller.coordinate = location!.coordinate
+            controller.placemark = placemark
+            
         }
     }
 

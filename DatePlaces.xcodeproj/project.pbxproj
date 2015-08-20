@@ -16,6 +16,7 @@
 		5DC9FB871B83E2CF00178C28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC9FB861B83E2CF00178C28 /* Images.xcassets */; };
 		5DC9FB8A1B83E2CF00178C28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DC9FB881B83E2CF00178C28 /* LaunchScreen.xib */; };
 		5DC9FB961B83E2CF00178C28 /* DatePlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9FB951B83E2CF00178C28 /* DatePlacesTests.swift */; };
+		5DFDC49F1B8566FF00D9E6EF /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDC49E1B8566FF00D9E6EF /* CategoryPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,18 +32,19 @@
 /* Begin PBXFileReference section */
 		3BE0EC3184A543DC6B3F3960 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		58505F5F7FB871B3D6DC9AA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DAEB5201B84E6BA003011AE /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		5DAEB5201B84E6BA003011AE /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationDetailsViewController.swift; path = DatePlaces/LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		5DC9FB781B83E2CF00178C28 /* DatePlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatePlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC9FB7C1B83E2CF00178C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DC9FB7D1B83E2CF00178C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DC9FB7F1B83E2CF00178C28 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
-		5DC9FB811B83E2CF00178C28 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5DC9FB7F1B83E2CF00178C28 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentLocationViewController.swift; path = DatePlaces/CurrentLocationViewController.swift; sourceTree = "<group>"; };
+		5DC9FB811B83E2CF00178C28 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = DatePlaces/SecondViewController.swift; sourceTree = "<group>"; };
 		5DC9FB841B83E2CF00178C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DC9FB861B83E2CF00178C28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DC9FB891B83E2CF00178C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5DC9FB8F1B83E2CF00178C28 /* DatePlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DatePlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC9FB941B83E2CF00178C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DC9FB951B83E2CF00178C28 /* DatePlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePlacesTests.swift; sourceTree = "<group>"; };
+		5DFDC49E1B8566FF00D9E6EF /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		ACA133F101CD2A91060DF369 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 		5DC9FB6F1B83E2CF00178C28 = {
 			isa = PBXGroup;
 			children = (
+				5DFDC49D1B85669D00D9E6EF /* ViewControllers */,
 				5DC9FB7A1B83E2CF00178C28 /* DatePlaces */,
 				5DC9FB921B83E2CF00178C28 /* DatePlacesTests */,
 				5DC9FB791B83E2CF00178C28 /* Products */,
@@ -89,13 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				5DC9FB7D1B83E2CF00178C28 /* AppDelegate.swift */,
-				5DC9FB7F1B83E2CF00178C28 /* CurrentLocationViewController.swift */,
-				5DC9FB811B83E2CF00178C28 /* SecondViewController.swift */,
 				5DC9FB831B83E2CF00178C28 /* Main.storyboard */,
 				5DC9FB861B83E2CF00178C28 /* Images.xcassets */,
 				5DC9FB881B83E2CF00178C28 /* LaunchScreen.xib */,
 				5DC9FB7B1B83E2CF00178C28 /* Supporting Files */,
-				5DAEB5201B84E6BA003011AE /* LocationDetailsViewController.swift */,
 			);
 			path = DatePlaces;
 			sourceTree = "<group>";
@@ -123,6 +123,17 @@
 				5DC9FB941B83E2CF00178C28 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DFDC49D1B85669D00D9E6EF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5DC9FB7F1B83E2CF00178C28 /* CurrentLocationViewController.swift */,
+				5DC9FB811B83E2CF00178C28 /* SecondViewController.swift */,
+				5DAEB5201B84E6BA003011AE /* LocationDetailsViewController.swift */,
+				5DFDC49E1B8566FF00D9E6EF /* CategoryPickerViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		99A694ECC96EEDC295588D20 /* Pods */ = {
@@ -296,6 +307,7 @@
 				5DAEB5211B84E6BA003011AE /* LocationDetailsViewController.swift in Sources */,
 				5DC9FB821B83E2CF00178C28 /* SecondViewController.swift in Sources */,
 				5DC9FB7E1B83E2CF00178C28 /* AppDelegate.swift in Sources */,
+				5DFDC49F1B8566FF00D9E6EF /* CategoryPickerViewController.swift in Sources */,
 				5DC9FB801B83E2CF00178C28 /* CurrentLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
