@@ -17,7 +17,7 @@ class HudView: UIView {
         hudView.opaque = false
         view.addSubview(hudView)
         view.userInteractionEnabled = false
-       
+        hudView.showAnimated(animated)
         return hudView
         
     }
@@ -55,6 +55,24 @@ class HudView: UIView {
     }
     
     func showAnimated(animated: Bool) {
+        if animated {
+            
+            //This code makes the HUD view fade in as opacity goes from transparent to fully opaque.  Scale from (7.3, 7.3) times to regular height.
+            //1 - Set up the initial state of the view before anim. starts.  Transform = view is stretched.
+            alpha = 0
+            transform = CGAffineTransformMakeScale(1.3, 1.3)
+            //2 Set up with a closure.  A closure is a piece of code that is not executed right away.
+//            UIView.animateWithDuration(0.3, animations: {
+//                //3 closure, set up the new state of the view after the animation completes.
+//                self.alpha = 1
+//                self.transform = CGAffineTransformIdentity
+//            })
+
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: UIViewAnimationOptions(0), animations: {
+                        self.alpha = 1
+                        self.transform = CGAffineTransformIdentity
+                }, completion: nil)
+        }
         
     }
 }

@@ -17,6 +17,7 @@
 		5DC9FB871B83E2CF00178C28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC9FB861B83E2CF00178C28 /* Images.xcassets */; };
 		5DC9FB8A1B83E2CF00178C28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DC9FB881B83E2CF00178C28 /* LaunchScreen.xib */; };
 		5DC9FB961B83E2CF00178C28 /* DatePlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9FB951B83E2CF00178C28 /* DatePlacesTests.swift */; };
+		5DF4E3901B86CC9D00BBF843 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4E38F1B86CC9D00BBF843 /* Functions.swift */; };
 		5DFDC49F1B8566FF00D9E6EF /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDC49E1B8566FF00D9E6EF /* CategoryPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		5DC9FB8F1B83E2CF00178C28 /* DatePlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DatePlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC9FB941B83E2CF00178C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DC9FB951B83E2CF00178C28 /* DatePlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePlacesTests.swift; sourceTree = "<group>"; };
+		5DF4E38F1B86CC9D00BBF843 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		5DFDC49E1B8566FF00D9E6EF /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		ACA133F101CD2A91060DF369 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 		5D7B6BE91B86ADE900850572 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				5DF4E38F1B86CC9D00BBF843 /* Functions.swift */,
 				5DAABF441B866C4900CF08F5 /* HudView.swift */,
 			);
 			name = Controls;
@@ -318,6 +321,7 @@
 				5DAEB5211B84E6BA003011AE /* LocationDetailsViewController.swift in Sources */,
 				5DC9FB821B83E2CF00178C28 /* SecondViewController.swift in Sources */,
 				5DAABF451B866C4900CF08F5 /* HudView.swift in Sources */,
+				5DF4E3901B86CC9D00BBF843 /* Functions.swift in Sources */,
 				5DC9FB7E1B83E2CF00178C28 /* AppDelegate.swift in Sources */,
 				5DFDC49F1B8566FF00D9E6EF /* CategoryPickerViewController.swift in Sources */,
 				5DC9FB801B83E2CF00178C28 /* CurrentLocationViewController.swift in Sources */,

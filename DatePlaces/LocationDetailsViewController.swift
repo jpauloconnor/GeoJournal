@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Dispatch
 
 private let dateFormatter: NSDateFormatter = {
    let formatter = NSDateFormatter()
@@ -31,10 +32,12 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBAction func done() {
-//    println("Description '\(descriptionText)'")
-//    dismissViewControllerAnimated(true, completion: nil)
-    let hudView = HudView.hudInView(navigationController!.view, animated: true)
-        hudView.text = "Sweet"
+      let hudView = HudView.hudInView(navigationController!.view, animated: true)
+      hudView.text = "Sweet"
+    
+    //Closes the HUD pop up after .6 seconds.
+        afterDelay(0.9, {self.dismissViewControllerAnimated(true, completion: nil)
+        })
     }
     
     @IBAction func cancel() {
