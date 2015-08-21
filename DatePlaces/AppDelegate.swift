@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
                 let documentsDirectory = urls[0] as! NSURL
                 let storeURL = documentsDirectory.URLByAppendingPathComponent("DataStore.sqlite")
-                
+                println(storeURL)
                 //5 - Add SQLite database to the store coordinator.
                 var error: NSError?
                 if let store = coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) {
@@ -59,6 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tabBarViewControllers = tabBarController.viewControllers {
             let currentLocationViewController = tabBarViewControllers[0] as! CurrentLocationViewController
             currentLocationViewController.managedObjectContext = managedObjectContext
+            
+    
+            
         }
         // Override point for customization after application launch.
         return true
