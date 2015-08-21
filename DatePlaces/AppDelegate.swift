@@ -7,14 +7,59 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        //1 - Path to the CoreData folder.
+        if let modelURL = NSBundle.mainBundle().URLForResource("DataModel", withExtension: "momd") {
+            
+            //2 - Create an NSManaged object from the URL.
+            if let model = NSManagedObjectModel(contentsOfURL: modelURL) {
+                
+                //3 - Object in charge of the SQLite database.
+                let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
+                
+                //4 - app's data is stored in SQLite database.  Create NSURL object that points at the DataStore.sqlite file
+                let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+                let documentsDirectory = urls[0] as! NSURL
+                let storeURL = documentsDirectory.URLByAppendingPathComponent("DataStore.sqlite")
+                
+                //5 - Add SQLite database to the store coordinator.
+                var error: NSError?
+                if let store = coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) {
+                    //6 - create NSManO and return it.
+                    let context = NSManagedObjectContext()
+                    context.persistentStoreCoordinator = coordinator
+                    return context
+                    //7 - Print an error message.
+                } else {
+                    println(
+                        "Error adding persistent store at \(storeURL): \(error!)")
+                }
+            } else {
+                println("Error initializing model from: \(modelURL)")
+            }
+        } else {
+            println("Could not find data model in app bundle")
+        }
+        
+        abort()
+        }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //Get a ref to CLVC by finding UITabC and then check it's array.
+        let tabBarController = window!.rootViewController as! UITabBarController
+        
+        if let tabBarViewControllers = tabBarController.viewControllers {
+            let currentLocationViewController = tabBarViewControllers[0] as! CurrentLocationViewController
+            currentLocationViewController.managedObjectContext = managedObjectContext
+        }
         // Override point for customization after application launch.
         return true
     }
