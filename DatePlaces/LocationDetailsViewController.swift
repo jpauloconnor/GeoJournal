@@ -31,9 +31,10 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBAction func done() {
-    println("Description '\(descriptionText)'")
-    dismissViewControllerAnimated(true, completion: nil)
-    
+//    println("Description '\(descriptionText)'")
+//    dismissViewControllerAnimated(true, completion: nil)
+    let hudView = HudView.hudInView(navigationController!.view, animated: true)
+        hudView.text = "Sweet"
     }
     
     @IBAction func cancel() {
@@ -60,6 +61,11 @@ class LocationDetailsViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
         dateLabel.text = formatDate(NSDate())
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard:"))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
+        
     }
     
     func stringFromPlacemark(placemark: CLPlacemark) -> String {
@@ -90,6 +96,30 @@ class LocationDetailsViewController: UITableViewController {
             let controller = segue.destinationViewController as! CategoryPickerViewController
             controller.selectedCategoryName = categoryName
         }
+    }
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
+    }
+    
+    func hideKeyboard(gestureRecognizer: UIGestureRecognizer) {
+        let point = gestureRecognizer.locationInView(tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        
+        if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0{
+                return
+            println("Something is wrong here")
+            
+        }
+        descriptionTextView.resignFirstResponder()
     }
     
 }

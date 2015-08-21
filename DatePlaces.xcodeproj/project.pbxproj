@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35E21F0B898D301D36D73B09 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58505F5F7FB871B3D6DC9AA9 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5DAABF451B866C4900CF08F5 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF441B866C4900CF08F5 /* HudView.swift */; };
 		5DAEB5211B84E6BA003011AE /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB5201B84E6BA003011AE /* LocationDetailsViewController.swift */; };
 		5DC9FB7E1B83E2CF00178C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9FB7D1B83E2CF00178C28 /* AppDelegate.swift */; };
 		5DC9FB801B83E2CF00178C28 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9FB7F1B83E2CF00178C28 /* CurrentLocationViewController.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		3BE0EC3184A543DC6B3F3960 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		58505F5F7FB871B3D6DC9AA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DAABF441B866C4900CF08F5 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		5DAEB5201B84E6BA003011AE /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationDetailsViewController.swift; path = DatePlaces/LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		5DC9FB781B83E2CF00178C28 /* DatePlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatePlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC9FB7C1B83E2CF00178C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,9 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D7B6BE91B86ADE900850572 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF441B866C4900CF08F5 /* HudView.swift */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
 		5DC9FB6F1B83E2CF00178C28 = {
 			isa = PBXGroup;
 			children = (
+				5D7B6BE91B86ADE900850572 /* Controls */,
 				5DFDC49D1B85669D00D9E6EF /* ViewControllers */,
 				5DC9FB7A1B83E2CF00178C28 /* DatePlaces */,
 				5DC9FB921B83E2CF00178C28 /* DatePlacesTests */,
@@ -306,6 +317,7 @@
 			files = (
 				5DAEB5211B84E6BA003011AE /* LocationDetailsViewController.swift in Sources */,
 				5DC9FB821B83E2CF00178C28 /* SecondViewController.swift in Sources */,
+				5DAABF451B866C4900CF08F5 /* HudView.swift in Sources */,
 				5DC9FB7E1B83E2CF00178C28 /* AppDelegate.swift in Sources */,
 				5DFDC49F1B8566FF00D9E6EF /* CategoryPickerViewController.swift in Sources */,
 				5DC9FB801B83E2CF00178C28 /* CurrentLocationViewController.swift in Sources */,
