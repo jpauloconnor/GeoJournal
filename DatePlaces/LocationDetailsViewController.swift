@@ -25,6 +25,7 @@ class LocationDetailsViewController: UITableViewController {
     var descriptionText = ""
     var categoryName = "No Category"
     var managedObjectContext: NSManagedObjectContext!
+    var date = NSDate()
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -36,10 +37,25 @@ class LocationDetailsViewController: UITableViewController {
     @IBAction func done() {
       let hudView = HudView.hudInView(navigationController!.view, animated: true)
       hudView.text = "Sweet"
-    
-    //Closes the HUD pop up after .6 seconds.
-        afterDelay(0.9, {self.dismissViewControllerAnimated(true, completion: nil)
-        })
+        
+    //1
+        let location = NSEntityDescription.insertNewObjectForEntityForName("Places", inManagedObjectContext: managedObjectContext) as! Places
+        
+        location.locationDescription = descriptionText
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        
+        var error: NSError?
+        if !managedObjectContext.save(&error) {
+            println("Error: \(error)")
+            abort()
+        }
+        afterDelay(0.6) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     @IBAction func cancel() {
@@ -65,7 +81,7 @@ class LocationDetailsViewController: UITableViewController {
         } else {
             addressLabel.text = "No Address Found"
         }
-        dateLabel.text = formatDate(NSDate())
+        dateLabel.text = formatDate(date)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard:"))
         gestureRecognizer.cancelsTouchesInView = false

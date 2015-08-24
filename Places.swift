@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import CoreLocation
 
-class Location: NSManagedObject {
+class Places: NSManagedObject {
     
     @NSManaged var latitude: Double
     @NSManaged var longitude: Double
