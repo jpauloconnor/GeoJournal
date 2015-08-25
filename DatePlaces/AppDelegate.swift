@@ -9,6 +9,16 @@
 import UIKit
 import CoreData
 
+let MyManagedObjectContextSaveDidFailNotification = "MyManagedObjectContextSaveDidFailNotification"
+
+func fatalCoreDataError(error: NSError?) {
+    if let error = error {
+        println("***Fatal error: \(error), \(error.userInfo)")
+    }
+    NSNotificationCenter.defaultCenter().postNotificationName(
+        MyManagedObjectContextSaveDidFailNotification, object: error)
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -60,7 +70,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let currentLocationViewController = tabBarViewControllers[0] as! CurrentLocationViewController
             currentLocationViewController.managedObjectContext = managedObjectContext
             
-    
+            let navigationController = tabBarViewControllers[1]
+                as! UINavigationController
+            let placesViewController = navigationController.viewControllers[0] as! PlacesViewController
+            placesViewController.managedObjectContext = managedObjectContext
+           
+            let mapViewController = tabBarViewControllers[2] as! MapViewController
+            mapViewController.managedObjectContext = managedObjectContext
             
         }
         // Override point for customization after application launch.
@@ -89,6 +105,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func listenForFatalCoreDataNotifications() {
+        NSNotificationCenter.defaultCenter().addObserverForName(MyManagedObjectContextSaveDidFailNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { notification in
+            
+            let alert = UIAlertController(title: "Internal Error",
+                message: "There was a fatal error in the app and it cannot continue.\n\n"
+                    + "Press OK to terminate the app. Sorry for the inconvenience.",
+                preferredStyle: .Alert)
+            
+            let action = UIAlertAction(title: "OK", style: .Default) { _ in
+                let exception = NSException(name: NSInternalInconsistencyException, reason: "Fatal Core Data error", userInfo: nil)
+                exception.raise()
+            }
+            
+            alert.addAction(action)
+            
+            self.viewControllerForShowingAlert().presentViewController(alert, animated: true, completion: nil)
+        })
+    }
+    
+    func viewControllerForShowingAlert() -> UIViewController {
+        let rootViewController = self.window!.rootViewController!
+        if let presentedViewController = rootViewController.presentedViewController {
+            return presentedViewController
+        } else {
+            return rootViewController
+        }
+    }
 
 }
 

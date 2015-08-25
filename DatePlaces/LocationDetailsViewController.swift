@@ -26,7 +26,22 @@ class LocationDetailsViewController: UITableViewController {
     var categoryName = "No Category"
     var managedObjectContext: NSManagedObjectContext!
     var date = NSDate()
-    
+    var placeToEdit: Places? {
+        //didSet block will be performed whenever you put a new value into the variable.
+        
+        didSet {
+            if let place = placeToEdit {
+                descriptionText = place.locationDescription
+                categoryName = place.category
+                date = place.date
+                coordinate = CLLocationCoordinate2DMake(place.latitude, place.longitude)
+                placemark = place.placemark
+                println("2")
+                
+            }
+        }
+    }
+
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -37,21 +52,32 @@ class LocationDetailsViewController: UITableViewController {
     @IBAction func done() {
       let hudView = HudView.hudInView(navigationController!.view, animated: true)
       hudView.text = "Sweet"
+        var place: Places
+        if let temp = placeToEdit {
+            hudView.text = "Updated"
+            place = temp
+            println("1")
+            
+        } else {
+            hudView.text = "Tagged"
+            place = NSEntityDescription.insertNewObjectForEntityForName("Places", inManagedObjectContext: managedObjectContext) as! Places
+            
+            println("1****Something went wrong")
+        }
         
     //1
-        let location = NSEntityDescription.insertNewObjectForEntityForName("Places", inManagedObjectContext: managedObjectContext) as! Places
         
-        location.locationDescription = descriptionText
-        location.category = categoryName
-        location.latitude = coordinate.latitude
-        location.longitude = coordinate.longitude
-        location.date = date
-        location.placemark = placemark
+        place.locationDescription = descriptionText
+        place.category = categoryName
+        place.latitude = coordinate.latitude
+        place.longitude = coordinate.longitude
+        place.date = date
+        place.placemark = placemark
         
         var error: NSError?
         if !managedObjectContext.save(&error) {
-            println("Error: \(error)")
-            abort()
+            fatalCoreDataError(error)
+            return
         }
         afterDelay(0.6) {
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -70,6 +96,11 @@ class LocationDetailsViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let place = placeToEdit {
+            title = "Edit Places"
+            
+        }
         descriptionTextView.text = descriptionText
         categoryLabel.text = categoryName
         
