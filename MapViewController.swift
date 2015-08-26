@@ -33,9 +33,9 @@ class MapViewController: UIViewController {
         
         }
     
-        @IBAction func showPlaces() {
-            let region = regionForAnnotations(places)
-            mapView.setRegion(region, animated: true)
+    @IBAction func showPlaces() {
+        let region = regionForAnnotations(places)
+        mapView.setRegion(region, animated: true)
         }
     override func viewDidLoad() {
         super.viewDidLoad()

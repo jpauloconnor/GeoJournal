@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
                 let documentsDirectory = urls[0] as! NSURL
                 let storeURL = documentsDirectory.URLByAppendingPathComponent("DataStore.sqlite")
+                println("This is the file name")
                 println(storeURL)
                 //5 - Add SQLite database to the store coordinator.
                 var error: NSError?

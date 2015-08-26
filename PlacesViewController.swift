@@ -66,6 +66,7 @@ class PlacesViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let place = fetchedResultsController.objectAtIndexPath(indexPath) as! Places
+            place.removePhotoFile()
             managedObjectContext.deleteObject(place)
             
             var error: NSError?

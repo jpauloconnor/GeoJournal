@@ -10,8 +10,10 @@
 		35E21F0B898D301D36D73B09 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58505F5F7FB871B3D6DC9AA9 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5D00903A1B8CC6980050927E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0090391B8CC6980050927E /* MapKit.framework */; };
 		5D00903C1B8CC77A0050927E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00903B1B8CC77A0050927E /* MapViewController.swift */; };
-		5D6ED9941B877E84001BB6BD /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ED9921B877E84001BB6BD /* DataModel.xcdatamodeld */; };
-		5D6ED9981B879A89001BB6BD /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ED9971B879A89001BB6BD /* Places.swift */; };
+		5D788AD11B8D4B580006B5CF /* DataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D788ACF1B8D4B580006B5CF /* DataStore.xcdatamodeld */; };
+		5D788AD71B8D4F690006B5CF /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D788AD61B8D4F690006B5CF /* Places.swift */; };
+		5D788AD91B8D61280006B5CF /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D788AD81B8D61280006B5CF /* UIImage+Resize.swift */; };
+		5DA1BA8F1B8DF8AD00559267 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1BA8E1B8DF8AD00559267 /* String+AddText.swift */; };
 		5DA6797E1B8BB29F008E0CB7 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA6797D1B8BB29F008E0CB7 /* PlacesViewController.swift */; };
 		5DA9B0E61B8BFA4F0001A713 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9B0E51B8BFA4F0001A713 /* PlacesCell.swift */; };
 		5DAABF451B866C4900CF08F5 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF441B866C4900CF08F5 /* HudView.swift */; };
@@ -42,8 +44,10 @@
 		58505F5F7FB871B3D6DC9AA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0090391B8CC6980050927E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D00903B1B8CC77A0050927E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		5D6ED9931B877E84001BB6BD /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		5D6ED9971B879A89001BB6BD /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Places.swift; path = ../Places.swift; sourceTree = "<group>"; };
+		5D788AD01B8D4B580006B5CF /* DataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataStore.xcdatamodel; sourceTree = "<group>"; };
+		5D788AD61B8D4F690006B5CF /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Places.swift; path = ../Places.swift; sourceTree = "<group>"; };
+		5D788AD81B8D61280006B5CF /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		5DA1BA8E1B8DF8AD00559267 /* String+AddText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+AddText.swift"; path = "../String+AddText.swift"; sourceTree = "<group>"; };
 		5DA6797D1B8BB29F008E0CB7 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		5DA9B0E51B8BFA4F0001A713 /* PlacesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesCell.swift; path = ../PlacesCell.swift; sourceTree = "<group>"; };
 		5DAABF441B866C4900CF08F5 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
@@ -96,10 +100,10 @@
 		5DC9FB6F1B83E2CF00178C28 = {
 			isa = PBXGroup;
 			children = (
+				5D788ACF1B8D4B580006B5CF /* DataStore.xcdatamodeld */,
 				5D7B6BE91B86ADE900850572 /* Controls */,
 				5DFDC49D1B85669D00D9E6EF /* ViewControllers */,
 				5DC9FB7A1B83E2CF00178C28 /* DatePlaces */,
-				5D6ED9921B877E84001BB6BD /* DataModel.xcdatamodeld */,
 				5DC9FB921B83E2CF00178C28 /* DatePlacesTests */,
 				5DC9FB791B83E2CF00178C28 /* Products */,
 				99A694ECC96EEDC295588D20 /* Pods */,
@@ -119,13 +123,15 @@
 		5DC9FB7A1B83E2CF00178C28 /* DatePlaces */ = {
 			isa = PBXGroup;
 			children = (
-				5D6ED9971B879A89001BB6BD /* Places.swift */,
+				5D788AD61B8D4F690006B5CF /* Places.swift */,
 				5DA9B0E51B8BFA4F0001A713 /* PlacesCell.swift */,
 				5DC9FB7D1B83E2CF00178C28 /* AppDelegate.swift */,
 				5DC9FB831B83E2CF00178C28 /* Main.storyboard */,
 				5DC9FB861B83E2CF00178C28 /* Images.xcassets */,
 				5DC9FB881B83E2CF00178C28 /* LaunchScreen.xib */,
 				5DC9FB7B1B83E2CF00178C28 /* Supporting Files */,
+				5D788AD81B8D61280006B5CF /* UIImage+Resize.swift */,
+				5DA1BA8E1B8DF8AD00559267 /* String+AddText.swift */,
 			);
 			path = DatePlaces;
 			sourceTree = "<group>";
@@ -339,16 +345,18 @@
 			files = (
 				5DAEB5211B84E6BA003011AE /* LocationDetailsViewController.swift in Sources */,
 				5DA6797E1B8BB29F008E0CB7 /* PlacesViewController.swift in Sources */,
-				5D6ED9941B877E84001BB6BD /* DataModel.xcdatamodeld in Sources */,
 				5DC9FB821B83E2CF00178C28 /* SecondViewController.swift in Sources */,
 				5DAABF451B866C4900CF08F5 /* HudView.swift in Sources */,
 				5DA9B0E61B8BFA4F0001A713 /* PlacesCell.swift in Sources */,
+				5D788AD91B8D61280006B5CF /* UIImage+Resize.swift in Sources */,
 				5DF4E3901B86CC9D00BBF843 /* Functions.swift in Sources */,
 				5D00903C1B8CC77A0050927E /* MapViewController.swift in Sources */,
 				5DC9FB7E1B83E2CF00178C28 /* AppDelegate.swift in Sources */,
+				5DA1BA8F1B8DF8AD00559267 /* String+AddText.swift in Sources */,
 				5DFDC49F1B8566FF00D9E6EF /* CategoryPickerViewController.swift in Sources */,
+				5D788AD11B8D4B580006B5CF /* DataStore.xcdatamodeld in Sources */,
 				5DC9FB801B83E2CF00178C28 /* CurrentLocationViewController.swift in Sources */,
-				5D6ED9981B879A89001BB6BD /* Places.swift in Sources */,
+				5D788AD71B8D4F690006B5CF /* Places.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,13 +568,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5D6ED9921B877E84001BB6BD /* DataModel.xcdatamodeld */ = {
+		5D788ACF1B8D4B580006B5CF /* DataStore.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5D6ED9931B877E84001BB6BD /* DataModel.xcdatamodel */,
+				5D788AD01B8D4B580006B5CF /* DataStore.xcdatamodel */,
 			);
-			currentVersion = 5D6ED9931B877E84001BB6BD /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
+			currentVersion = 5D788AD01B8D4B580006B5CF /* DataStore.xcdatamodel */;
+			path = DataStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
